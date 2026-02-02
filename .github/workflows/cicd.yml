@@ -23,7 +23,7 @@ jobs:
         node-version: '20'
         # NO cache: 'npm' = NO lockfile required ✅
     
-    - run: npm ci
+    - run: npm install
     - run: npm test
 
   deploy:
