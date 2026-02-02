@@ -1,4 +1,4 @@
-name: JS CI/CD
+name: JS CI/CD (Lock-Free)
 
 on:
   push:
@@ -16,11 +16,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
+    
     - name: Use Node.js
       uses: actions/setup-node@v4
       with:
         node-version: '20'
-        cache: 'npm'
+        # NO cache: 'npm' = NO lockfile required ✅
+    
     - run: npm ci
     - run: npm test
 
